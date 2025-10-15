@@ -10,3 +10,6 @@ class AuthPage:
     
     def go(self):
         self.__driver.get(self.__url)
+
+    def login_as(self, email: str):
+        self.__driver.find_element(By.CSS_SELECTOR, "#autocomplete").send_keys(email)
