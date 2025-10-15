@@ -1,2 +1,13 @@
 # labirint_final_proj
-Final project for labirint web app testing
+
+## Финальный проект - тестирование веб-приложения книжного интернет магазина Лабиринт
+
+### Стек:
+- pytest
+- selenium
+- requests
+- _sqlalchemy_
+
+### Полезные ссылки
+- [Подсказка по Markdown](https://www.markdownguide.org/basic-syntax/)
+- 
