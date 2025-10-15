@@ -1,4 +1,6 @@
+import Allure
 from pages.AuthPage import AuthPage
+from pages.MainPage import MainPage
 
 
 def auth_test(browser):

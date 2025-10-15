@@ -6,6 +6,8 @@
 1. Склонировать репозиторий проекта 'git clone https://github.com/Vladislav-Alexandrovich/labirint_final_proj.git'
 2. Установить все зависимости
 3. Запустить тесты 'pytest'
+4. Сгенерировать отчет 'allure generate allure-files -o allure-report'
+5. Открыть отчет 'allure open allure-report'
 
 ### Стек:
 - pytest
@@ -30,7 +32,7 @@
 - pip install selenium
 - pip install webdriver-manager
 - pip install allure-pytest
-
+- pip install requests
 
 
 
