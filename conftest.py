@@ -14,6 +14,7 @@ def browser():
                                     (GeckoDriverManager().install()))
         browser.implicitly_wait(5)
         browser.maximize_window()
+        
         yield browser
 
     with allure.step("Закрыть браузер"):
