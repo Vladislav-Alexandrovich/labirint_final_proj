@@ -3,8 +3,8 @@
 import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
 from creds import base_url
 
 
@@ -22,10 +22,10 @@ class SearchPage:
         self.__driver.add_cookie(cookie)
         self.__driver.refresh()
 
+    @allure.step("Определение количества товаров в выкладке поиска")
     def goods_counter(self):
         """ищем кнопки добавления в корзину"""
-        put_in_cart_button = self.__driver.find_elements(By.CSS_SELECTOR, '[data-carttext]')
+        put_in_cart_button = self.__driver.find_elements(
+            By.CSS_SELECTOR, '[data-carttext]')
         number_of_items = len(put_in_cart_button)
         return int(number_of_items)
-
-        

@@ -1,6 +1,6 @@
 import allure
 import pytest
-from creds import (item_to_search, empty_search)
+from creds import (item_to_search, empty_search, base_url)
 from lab_pages.MainPage import MainPage
 from lab_pages.CartPage import CartPage
 from lab_pages.SearchPage import SearchPage
@@ -22,38 +22,47 @@ def smoke_test_all_search_headers(browser):
 
     with allure.step("Проверка вкладки Книги"):
         books_header = main_page.click_on_books()
-        assert main_page.get_current_url() == 'https://www.labirint.ru/books/'
+        assert main_page.get_current_url() == (base_url + "books/")
+        assert main_page.get_current_url() != base_url
         assert books_header == 'Книги'
 
     with allure.step("Проверка вкладки Иностранные издания"):
         foreing_headers = main_page.click_on_foreignbooks()
-        assert main_page.get_current_url() == 'https://www.labirint.ru/foreignbooks/'
+        assert main_page.get_current_url() == (base_url + "foreignbooks/")
+        assert main_page.get_current_url() != base_url
         assert foreing_headers == 'Книги на иностранном языке'
 
     with allure.step("Проверка вкладки Главное"):
         best_header = main_page.click_on_best()
-        assert main_page.get_current_url() == 'https://www.labirint.ru/best/'
+        assert main_page.get_current_url() == (base_url + "best/")
+        assert main_page.get_current_url() != base_url
         assert best_header == 'Главные книги 2025'
 
     with allure.step("Проверка вкладки Школа"):
         school_header = main_page.click_on_school()
-        assert main_page.get_current_url() == 'https://www.labirint.ru/school/'
+        assert main_page.get_current_url() == (base_url + "school/")
+        assert main_page.get_current_url() != base_url
         assert school_header == 'Все учебники в Лабиринте'
 
     with allure.step("Проверка вкладки Канцтовары"):
         office_header = main_page.click_on_office()
-        assert main_page.get_current_url() == 'https://www.labirint.ru/office/'
+        assert main_page.get_current_url() == (base_url + "office/")
+        assert main_page.get_current_url() != base_url
         assert office_header == "Канцелярские товары"
 
     with allure.step("Проверка вкладки Игрушки"):
         games_header = main_page.click_on_games()
-        assert main_page.get_current_url() == 'https://www.labirint.ru/games/'
+        assert main_page.get_current_url() == (base_url + "games/")
+        assert main_page.get_current_url() != base_url
         assert games_header == "Игры и игрушки"
 
     with allure.step("Проверка вкладки Еще"):
         multimedia_header = main_page.more_multimedia()
+        assert main_page.get_current_url() != base_url
         souvenir_header = main_page.more_souvenir()
+        assert main_page.get_current_url() != base_url
         journals_header = main_page.more_journals()
+        assert main_page.get_current_url() != base_url
         assert multimedia_header == 'Мультимедиа'
         assert souvenir_header == 'Сувениры'
         assert journals_header == 'Журнальный лабиринт'

@@ -1,3 +1,3 @@
-base_url = "https://www.labirint.ru/"
-item_to_search = "Азбука"
-empty_search = " "
+base_url: str = "https://www.labirint.ru/"
+item_to_search: str = "Азбука"
+empty_search: str = " "
