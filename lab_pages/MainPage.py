@@ -1,24 +1,28 @@
+"""В этом классе хранятся методы для открытия вкладок
+и работы с главной страницей"""
+
 import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from creds import base_url
 
 class MainPage:
+    @allure.step("ui.открытие бразера")
     def __init__(self, driver: WebDriver) -> None:
         """открываем страницу"""
-        # self.__url = "https://www.labirint.ru/"
-        # self.__driver = driver
         self.__driver = driver
-        self.__driver.get("https://www.labirint.ru/")
-        
+        self.__driver.get(base_url)
+    
+    @allure.step("ui.передача куки")
     def put_cookie(self):
         """передаем куки"""
         cookie = {'name': 'cookie_policy', 'value': '1'}
         self.__driver.add_cookie(cookie)
         self.__driver.refresh()
 
+    @allure.step("ui.клик на вкладку Книги")
     def click_on_books(self):
         """кликаем на вкладку Книги"""
         WebDriverWait(self.__driver, 10).until(
@@ -34,6 +38,7 @@ class MainPage:
         books_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.genre-name').text
         return str(books_header)
     
+    @allure.step("ui.клик на вкладку Иностранные издания")
     def click_on_foreignbooks(self) -> str:
         """кликаем на вкладку Иностранные издания"""
         WebDriverWait(self.__driver, 10).until(
@@ -49,6 +54,7 @@ class MainPage:
         foreign_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.genre-name').text
         return str(foreign_header)
     
+    @allure.step("ui.клик на вкладку Главное")
     def click_on_best(self) -> str:
         """кликаем на вкладку Главное"""
         WebDriverWait(self.__driver, 10).until(
@@ -73,7 +79,7 @@ class MainPage:
     #     WebDriverWait(self.__driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'h1.school-cap__header')))
     #     school_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.school-cap__header').text
     #     return school_header
-    
+    @allure.step("ui.клик на вкладку Школа")
     def click_on_school(self) -> str:
         """переходим на страницу Школа"""
         self.__driver.get("https://www.labirint.ru/school/")
@@ -96,6 +102,7 @@ class MainPage:
         office_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.genre-name').text
         return office_header
     
+    @allure.step("ui.клик на вкладку Игрушки")
     def click_on_games(self) -> str:
         """кликаем на вкладку Игрушки"""
         WebDriverWait(self.__driver, 10).until(
@@ -111,24 +118,33 @@ class MainPage:
         game_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.genre-name').text
         return game_header
     
+    @allure.step("ui.переход в раздел Мультимедиа")
     def more_multimedia(self) -> str:
         """переходим в раздел Мультимедиа"""
         self.__driver.get("https://www.labirint.ru/multimedia/")
         multimedia_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.genre-name').text
         return multimedia_header
     
+    @allure.step("ui.переход в раздел Сувениры")
     def more_souvenir(self) -> str:
         """переходим в раздел Сувениры"""
         self.__driver.get("https://www.labirint.ru/souvenir/")
         souvenir_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1.genre-name').text
         return souvenir_header
-    
+  
+    @allure.step("ui.переход в раздел Журналы")
     def more_journals(self) -> str:
         """переходим в раздел Журналы"""
         self.__driver.get("https://www.labirint.ru/journals/")
         journals_header = self.__driver.find_element(By.CSS_SELECTOR, 'h1').text
         return journals_header
 
+    @allure.step("ui.поиск")
+    def search(self, term):
+        self.__driver.find_element(By.ID, "search-field").send_keys(term)
+        self.__driver.find_element(By.CSS_SELECTOR, "button[type=submit]").click()
+
+    @allure.step("ui.получение адреса текущей страницы")
     def get_current_url(self) -> str:
         """получаем адрес текущей страницы"""
         current_url = self.__driver.current_url

@@ -6,13 +6,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from creds import base_url
+
 
 class CartPage:
     @allure.step("ui.открытие бразера")
     def __init__(self, driver: WebDriver) -> None:
         """открываем браузер"""
         self.__driver = driver
-        self.__driver.get("https://www.labirint.ru/")
+        self.__driver.get(base_url)
 
     @allure.step("ui.передача куки")
     def put_cookie(self):
@@ -42,3 +44,13 @@ class CartPage:
         """очищаем корзину"""
         WebDriverWait(self.__driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".b-link-popup.basket-header-links")))
         self.__driver.find_element(By.XPATH, "//span[@class='b-link-popup basket-header-links' and normalize-space(text())='Очистить корзину']").click()
+
+    @allure.step("ui.вывод стоимостей товара в корзине")
+    def price_check(self):
+        """проверяем что стоимость книги равна стоимости при оформлении заказа,
+        применяются скидки"""
+        items_value = self.__driver.find_element(By.CLASS_NAME, "book-price").text
+        items_price = items_value.split()[0]
+        check_out_value = self.__driver.find_element(By.ID, "basket-default-sumprice-discount").text
+        check_out_price = check_out_value.split()[0]
+        return int(items_price), int(check_out_price)
