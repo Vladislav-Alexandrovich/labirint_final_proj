@@ -15,57 +15,81 @@ api = LabirintApi(base_url)
 @allure.id("LABIRINT_1")
 @allure.story("API_test")
 @allure.feature("API")
+@pytest.mark.api
+@pytest.mark.positive_test
 def test_search_by_id():
-    resp = api.search_book_by_id(item_id)
-    assert resp.status_code == 200
+    with allure.step("Поиск по ID {item_id} книги"):
+        resp = api.search_book_by_id(item_id)
+        assert resp.status_code == 200
 
 
+@pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_author():
-    resp = api.search_item_by_author(author_id)
-    assert resp.status_code == 200
+    with allure.step("Поиск по ID {author_id} автора"):
+        resp = api.search_item_by_author(author_id)
+        assert resp.status_code == 200
 
 
+@pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_office_id():
-    resp = api.search_item_from_office(office_id)
-    assert resp.status_code == 200
+    with allure.step("Поиск по ID {office_id} канцтоваров"):
+        resp = api.search_item_from_office(office_id)
+        assert resp.status_code == 200
 
 
+@pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_souvenir_id():
-    resp = api.search_item_from_souvenir(souvenir_id)
-    assert resp.status_code == 200
+    with allure.step("Поиск по ID {souvenir_id} сувенира"):
+        resp = api.search_item_from_souvenir(souvenir_id)
+        assert resp.status_code == 200
 
 
+@pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_journal_id():
-    resp = api.search_item_from_journals(journal_id)
-    assert resp.status_code == 200
+    with allure.step("Поиск по ID {journal_id} журнала"):
+        resp = api.search_item_from_journals(journal_id)
+        assert resp.status_code == 200
 
+
+@pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_games_id():
-    resp = api.search_item_from_games(game_id)
-    assert resp.status_code == 200
+    with allure.step("Поиск по ID {game_id} игры"):
+        resp = api.search_item_from_games(game_id)
+        assert resp.status_code == 200
 
+
+@pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_wrong_id():
-    resp = api.search_book_by_id(str(wrong_item_id))
-    assert resp.status_code == 404
+    with allure.step("Поиск книги по несуществующему ID {wrong_item_id}"):
+        resp = api.search_book_by_id(str(wrong_item_id))
+        assert resp.status_code == 404
 
+
+@pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_wrong_author_id():
-    resp = api.search_book_by_id(str(wrong_author_id))
-    assert resp.status_code == 404
+    with allure.step("Поиск книги по автору с несуществующим ID {wrong_author_id}"):
+        resp = api.search_book_by_id(str(wrong_author_id))
+        assert resp.status_code == 404
 
 
+@pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_wrong_genre_id():
-    resp = api.search_by_genre(str(wrong_genre))
-    assert resp.status_code == 404
+    with allure.step("Поиск по несуществующему разделу {wrong_genre}"):
+        resp = api.search_by_genre(str(wrong_genre))
+        assert resp.status_code == 404
 
 
+@pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_publishing_house():
-    resp = api.search_by_publishing_house()
-    assert resp.status_code == 404
+    with allure.step("Поиск книги по издательству"):
+        resp = api.search_by_publishing_house()
+        assert resp.status_code == 404
