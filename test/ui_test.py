@@ -10,7 +10,7 @@ from lab_pages.SearchPage import SearchPage
 @allure.id("LABIRINT_1")
 @allure.story("UI_test")
 @allure.feature("Main_page_ui")
-@pytest.mark.ui_tests
+@pytest.mark.ui_test
 @pytest.mark.skip(reason='working')
 def smoke_test_all_search_headers(browser):
     """Этот тест содержит необходимые проверки для основных товарных вкладок"""
@@ -67,9 +67,8 @@ def smoke_test_all_search_headers(browser):
         assert souvenir_header == 'Сувениры'
         assert journals_header == 'Журнальный лабиринт'
 
-
-@allure.feature("Main_page_ui")
-@pytest.mark.ui_tests
+@allure.feature("Cart_page_ui")
+@pytest.mark.ui_test
 @pytest.mark.skip(reason='working')
 def smoke_test_cart_functions(browser):
     """Этот тест содержит необходимые проверки работы корзины"""
@@ -95,7 +94,7 @@ def smoke_test_cart_functions(browser):
         assert empty_cart_message == 'ВАША КОРЗИНА ПУСТА. ПОЧЕМУ?'
 
 
-@pytest.mark.ui_tests
+@pytest.mark.ui_test
 @pytest.mark.skip(reason='working')
 def price_test(browser):
     """Этот тест содержит проверку стоимости товара в корзине
@@ -120,7 +119,7 @@ def price_test(browser):
 
 
 @allure.feature("Search_page_ui")
-@pytest.mark.ui_tests
+@pytest.mark.ui_test
 @pytest.mark.skip(reason='working')
 def test_search_book(browser):
     """Этот тест проверяет что поиск выдает результаты"""
@@ -137,7 +136,7 @@ def test_search_book(browser):
         assert number_of_goods > 0
 
 
-@pytest.mark.ui_tests
+@pytest.mark.ui_test
 @pytest.mark.skip(reason='working')
 def test_empty_search(browser):
     """Этот тест проверяет что пустой поиск не выдает результатов"""
