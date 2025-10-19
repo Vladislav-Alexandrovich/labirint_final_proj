@@ -23,11 +23,12 @@
 - ./lab_api - апи клиенты
 
 ### Команды
-pytest - запускает все тесты
-pytest -m ui - запускает тесты пользовательского интерфейса
-pytest -m api - запускает тесты программного интерфейса
-pytest --alluredir allure-result - запуск allure
-allure serve allure-result
+#### pytest - запускает все тесты
+#### pytest -m ui - запускает тесты пользовательского интерфейса
+#### pytest -m api - запускает тесты программного интерфейса
+#### pytest --alluredir allure-result - запуск allure
+#### allure serve allure-result
+
 ### Полезные ссылки
 - [Подсказка по Markdown](https://www.markdownguide.org/basic-syntax/)
 - [Генератор файла .gitignore](https://www.toptal.com/developers/gitignore)
@@ -39,7 +40,6 @@ allure serve allure-result
 - pip install webdriver-manager
 - pip install allure-pytest
 - pip install requests
-
 
 
 
