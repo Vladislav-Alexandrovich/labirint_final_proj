@@ -18,8 +18,8 @@ def smoke_test_all_search_headers(browser):
     with allure.step("Передать драйвер"):
         main_page = MainPage(browser)
 
-    with allure.step("Передать куки"):
-        main_page.put_cookie()
+    # with allure.step("Передать куки"):
+    #     main_page.put_cookie()
 
     with allure.step("Проверка вкладки Книги"):
         books_header = main_page.click_on_books()
@@ -78,8 +78,8 @@ def smoke_test_cart_functions(browser):
     with allure.step("Передать драйвер"):
         cart_page = CartPage(browser)
 
-    with allure.step("Передать куки"):
-        cart_page.put_cookie()
+    # with allure.step("Передать куки"):
+    #     cart_page.put_cookie()
 
     with allure.step("Проверка пустой корзины"):
         empty_cart_message = cart_page.check_empty_cart()
@@ -106,8 +106,8 @@ def price_test(browser):
     with allure.step("Передать драйвер"):
         cart_page = CartPage(browser)
 
-    with allure.step("Передать куки"):
-        cart_page.put_cookie()
+    # with allure.step("Передать куки"):
+    #     cart_page.put_cookie()
 
     with allure.step("Проверка пустой корзины"):
         empty_cart_message = cart_page.check_empty_cart()
@@ -131,8 +131,8 @@ def test_search_book(browser):
     with allure.step("Передать драйвер"):
         main_page = MainPage(browser)
         search_page = SearchPage(browser)
-    with allure.step("Передать куки"):
-        main_page.put_cookie()
+    # with allure.step("Передать куки"):
+    #     main_page.put_cookie()
     with allure.step("Передать значение {item_to_search} для поиска"):
         main_page.search(item_to_search)
     with allure.step("Посчитать количество товаров на странице"):
@@ -149,8 +149,8 @@ def test_empty_search(browser):
     with allure.step("Передать драйвер"):
         main_page = MainPage(browser)
         search_page = SearchPage(browser)
-    with allure.step("Передать куки"):
-        main_page.put_cookie()
+    # with allure.step("Передать куки"):
+    #     main_page.put_cookie()
     with allure.step("Передать значение {empty_search} для поиска"):
         main_page.search(empty_search)
     with allure.step("Посчитать количество товаров на странице"):

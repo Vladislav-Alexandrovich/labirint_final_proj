@@ -13,14 +13,13 @@ class SearchPage:
     def __init__(self, driver: WebDriver) -> None:
         """открываем браузер"""
         self.__driver = driver
-        self.__driver.get(base_url)
 
-    @allure.step("ui.передача куки")
-    def put_cookie(self):
-        """прописываем куки"""
-        cookie = {'name': 'cookie_policy', 'value': '1'}
-        self.__driver.add_cookie(cookie)
-        self.__driver.refresh()
+    # @allure.step("ui.передача куки")
+    # def put_cookie(self):
+    #     """прописываем куки"""
+    #     cookie = {'name': 'cookie_policy', 'value': '1'}
+    #     self.__driver.add_cookie(cookie)
+    #     self.__driver.refresh()
 
     @allure.step("Определение количества товаров в выкладке поиска")
     def goods_counter(self):
