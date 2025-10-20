@@ -32,6 +32,7 @@
 ### Полезные ссылки
 - [Подсказка по Markdown](https://www.markdownguide.org/basic-syntax/)
 - [Генератор файла .gitignore](https://www.toptal.com/developers/gitignore)
+- [Ручная часть финальной работы](https://lovenewthings.yonote.ru/share/921183b0-53d8-4ffd-9c6f-da0df6a42d45)
 
 ### Библиотеки
 

@@ -5,21 +5,20 @@ from lab_pages.MainPage import MainPage
 from lab_pages.CartPage import CartPage
 from lab_pages.SearchPage import SearchPage
 
+# присвоить каждому, у каждого свой ID, у каждого свой тайтл
+
 
 @allure.epic("Final_project")
-@allure.id("LABIRINT_1")
+@allure.id("LAB_1")
 @allure.story("UI_test")
 @allure.feature("Main_page_ui")
+@allure.title("Тест работоспособности вкладок товаров")
 @pytest.mark.ui
 @pytest.mark.positive_test
-# @pytest.mark.skip(reason='working')
 def smoke_test_all_search_headers(browser):
     """Этот тест содержит необходимые проверки для основных товарных вкладок"""
     with allure.step("Передать драйвер"):
         main_page = MainPage(browser)
-
-    # with allure.step("Передать куки"):
-    #     main_page.put_cookie()
 
     with allure.step("Проверка вкладки Книги"):
         books_header = main_page.click_on_books()
@@ -69,6 +68,10 @@ def smoke_test_all_search_headers(browser):
         assert journals_header == 'Журнальный лабиринт'
 
 
+@allure.epic("Final_project")
+@allure.id("LAB_2")
+@allure.story("UI_test")
+@allure.title("Смоук тест функционала корзины")
 @allure.feature("Cart_page_ui")
 @pytest.mark.ui
 @pytest.mark.positive_test
@@ -84,7 +87,7 @@ def smoke_test_cart_functions(browser):
     with allure.step("Проверка пустой корзины"):
         empty_cart_message = cart_page.check_empty_cart()
         assert empty_cart_message == 'ВАША КОРЗИНА ПУСТА. ПОЧЕМУ?'
-    
+
     with allure.step("Наполнение корзины"):
         books_in_cart = cart_page.put_item_in_cart()
         assert books_in_cart == 1
@@ -97,6 +100,11 @@ def smoke_test_cart_functions(browser):
         assert empty_cart_message == 'ВАША КОРЗИНА ПУСТА. ПОЧЕМУ?'
 
 
+@allure.epic("Final_project")
+@allure.id("LAB_3")
+@allure.story("UI_test")
+@allure.title("Тест равенства стоимости товара перед оформлением заказа")
+@allure.feature("Cart_page_ui")
 @pytest.mark.ui
 @pytest.mark.positive_test
 # @pytest.mark.skip(reason='working')
@@ -122,6 +130,10 @@ def price_test(browser):
         assert items_price == check_out_price
 
 
+@allure.epic("Final_project")
+@allure.id("LAB_4")
+@allure.story("UI_test")
+@allure.title("Тест функционала поиска товара")
 @allure.feature("Search_page_ui")
 @pytest.mark.ui
 @pytest.mark.positive_test
@@ -141,6 +153,11 @@ def test_search_book(browser):
         assert number_of_goods > 0
 
 
+@allure.epic("Final_project")
+@allure.id("LAB_5")
+@allure.story("UI_test")
+@allure.title("Тест пустого поиска")
+@allure.feature("Search_page_ui")
 @pytest.mark.ui
 @pytest.mark.negative_test
 # @pytest.mark.skip(reason='working')

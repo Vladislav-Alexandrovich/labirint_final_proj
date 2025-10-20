@@ -4,15 +4,14 @@
 import pytest
 import allure
 from lab_api.LabApi import LabirintApi
-from creds import (
-    base_url, item_id, author_id, wrong_item_id, wrong_author_id,
-    wrong_genre, office_id, souvenir_id, journal_id, game_id)
+from creds import *
 
 api = LabirintApi(base_url)
 
 
 @allure.epic("Final_project")
-@allure.id("LABIRINT_1")
+@allure.title("Поиск по ID книги")
+@allure.id("LAB_6")
 @allure.story("API_test")
 @allure.feature("API")
 @pytest.mark.api
@@ -23,6 +22,11 @@ def test_search_by_id():
         assert resp.status_code == 200
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.title("Поиск по автору")
+@allure.feature("API")
+@allure.id("LAB_7")
 @pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_author():
@@ -31,6 +35,11 @@ def test_search_by_author():
         assert resp.status_code == 200
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.id("LAB_8")
+@allure.title("Поиск по канцтоварам")
 @pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_office_id():
@@ -39,6 +48,11 @@ def test_search_by_office_id():
         assert resp.status_code == 200
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.id("LAB_9")
+@allure.title("Поиск по сувенирам")
 @pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_souvenir_id():
@@ -47,6 +61,11 @@ def test_search_by_souvenir_id():
         assert resp.status_code == 200
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.title("Поиск по журналам")
+@allure.id("LAB_10")
 @pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_journal_id():
@@ -55,6 +74,11 @@ def test_search_by_journal_id():
         assert resp.status_code == 200
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.title("Поиск по играм")
+@allure.id("LAB_11")
 @pytest.mark.api
 @pytest.mark.positive_test
 def test_search_by_games_id():
@@ -63,6 +87,11 @@ def test_search_by_games_id():
         assert resp.status_code == 200
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.title("Поиск несуществующей книги")
+@allure.id("LAB_12")
 @pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_wrong_id():
@@ -71,6 +100,11 @@ def test_search_by_wrong_id():
         assert resp.status_code == 404
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.title("Поиск по несуществующему автору")
+@allure.id("LAB_13")
 @pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_wrong_author_id():
@@ -79,6 +113,11 @@ def test_search_by_wrong_author_id():
         assert resp.status_code == 404
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.title("Поиск несуществующего раздела")
+@allure.id("LAB_14")
 @pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_wrong_genre_id():
@@ -87,6 +126,11 @@ def test_search_by_wrong_genre_id():
         assert resp.status_code == 404
 
 
+@allure.epic("Final_project")
+@allure.story("API_test")
+@allure.feature("API")
+@allure.title("Поиск по издательству")
+@allure.id("LAB_15")
 @pytest.mark.api
 @pytest.mark.negative_test
 def test_search_by_publishing_house():

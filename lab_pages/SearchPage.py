@@ -5,21 +5,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
-from creds import base_url
 
 
 class SearchPage:
+    """В этом классе хранятся методы для работы с поиском"""
     @allure.step("ui.открытие бразера")
     def __init__(self, driver: WebDriver) -> None:
         """открываем браузер"""
         self.__driver = driver
-
-    # @allure.step("ui.передача куки")
-    # def put_cookie(self):
-    #     """прописываем куки"""
-    #     cookie = {'name': 'cookie_policy', 'value': '1'}
-    #     self.__driver.add_cookie(cookie)
-    #     self.__driver.refresh()
 
     @allure.step("Определение количества товаров в выкладке поиска")
     def goods_counter(self):
