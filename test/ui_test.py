@@ -9,6 +9,7 @@ from lab_pages.SearchPage import SearchPage
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.id("LAB_1")
 @allure.story("UI_test")
 @allure.feature("Main_page_ui")
@@ -69,6 +70,7 @@ def smoke_test_all_search_headers(browser):
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.id("LAB_2")
 @allure.story("UI_test")
 @allure.title("Смоук тест функционала корзины")
@@ -101,6 +103,7 @@ def smoke_test_cart_functions(browser):
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.id("LAB_3")
 @allure.story("UI_test")
 @allure.title("Тест равенства стоимости товара перед оформлением заказа")
@@ -131,6 +134,7 @@ def price_test(browser):
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.id("LAB_4")
 @allure.story("UI_test")
 @allure.title("Тест функционала поиска товара")
@@ -154,6 +158,7 @@ def test_search_book(browser):
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.id("LAB_5")
 @allure.story("UI_test")
 @allure.title("Тест пустого поиска")

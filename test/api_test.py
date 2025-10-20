@@ -10,6 +10,7 @@ api = LabirintApi(base_url)
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.title("Поиск по ID книги")
 @allure.id("LAB_6")
 @allure.story("API_test")
@@ -23,6 +24,7 @@ def test_search_by_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.title("Поиск по автору")
 @allure.feature("API")
@@ -36,6 +38,7 @@ def test_search_by_author():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.id("LAB_8")
@@ -49,6 +52,7 @@ def test_search_by_office_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.id("LAB_9")
@@ -62,6 +66,7 @@ def test_search_by_souvenir_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.title("Поиск по журналам")
@@ -75,6 +80,7 @@ def test_search_by_journal_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.title("Поиск по играм")
@@ -88,6 +94,7 @@ def test_search_by_games_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.title("Поиск несуществующей книги")
@@ -101,6 +108,7 @@ def test_search_by_wrong_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.title("Поиск по несуществующему автору")
@@ -114,6 +122,7 @@ def test_search_by_wrong_author_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.title("Поиск несуществующего раздела")
@@ -127,6 +136,7 @@ def test_search_by_wrong_genre_id():
 
 
 @allure.epic("Final_project")
+@allure.suite("Final_project_autotest")
 @allure.story("API_test")
 @allure.feature("API")
 @allure.title("Поиск по издательству")

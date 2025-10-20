@@ -9,7 +9,7 @@ from creds import base_url
 class MainPage:
     """В этом классе хранятся методы для открытия вкладок
 и работы с главной страницей"""
-    @allure.step("ui.открытие бразера")
+    @allure.step("ui.открытие браузера")
     def __init__(self, driver: WebDriver) -> None:
         """открываем страницу"""
         self.__driver = driver
