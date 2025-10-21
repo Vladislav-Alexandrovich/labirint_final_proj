@@ -27,6 +27,8 @@
 #### pytest -m ui - запускает тесты пользовательского интерфейса
 #### pytest -m api - запускает тесты программного интерфейса
 #### pytest --alluredir allure-result - запуск allure
+#### pytest  -m ui --alluredir allure-result - запускает тесты пользовательского интерфейса c результатами allure
+#### pytest  -m api --alluredir allure-result - запускает тесты программного интерфейса c результатами allure
 #### allure serve allure-result
 
 ### Полезные ссылки
