@@ -26,10 +26,10 @@
 #### pytest - запускает все тесты
 #### pytest -m ui - запускает тесты пользовательского интерфейса
 #### pytest -m api - запускает тесты программного интерфейса
-#### pytest --alluredir allure-result - запуск allure
+#### pytest --alluredir allure-result - запуск всех тестов с allure
 #### pytest  -m ui --alluredir allure-result - запускает тесты пользовательского интерфейса c результатами allure
 #### pytest  -m api --alluredir allure-result - запускает тесты программного интерфейса c результатами allure
-#### allure serve allure-result
+#### allure serve allure-result - визуализация отчета allure
 
 ### Полезные ссылки
 - [Подсказка по Markdown](https://www.markdownguide.org/basic-syntax/)
