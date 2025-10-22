@@ -1,5 +1,3 @@
-""" Здесь собрана фикстура, которая передает брузер:
-открывает страницу и вставляет куки"""
 import allure
 import pytest
 from selenium import webdriver
@@ -10,6 +8,8 @@ from creds import base_url
 
 @pytest.fixture
 def browser():
+    """ Здесь собрана фикстура, которая передает брузер:
+открывает страницу и вставляет куки"""
     with allure.step("Открыть настроенный браузер"):
         browser = webdriver.Firefox(service=FirefoxService
                                     (GeckoDriverManager().install()))
