@@ -114,7 +114,7 @@ def test_search_by_games_id():
 @pytest.mark.negative_test
 def test_search_by_wrong_id():
     with allure.step("Поиск книги по несуществующему ID {wrong_item_id}"):
-        resp, _ = api.search_book_by_id(str(wrong_item_id))
+        resp, _ = api.search_book_by_id(wrong_item_id)
         assert resp.status_code == 404
 
 
@@ -129,7 +129,7 @@ def test_search_by_wrong_id():
 def test_search_by_wrong_author_id():
     with allure.step(
             "Поиск книги по автору с несуществующим ID {wrong_author_id}"):
-        resp, _ = api.search_item_by_author(str(wrong_author_id))
+        resp, _ = api.search_item_by_author(wrong_author_id)
         assert resp.status_code == 404
 
 
@@ -143,7 +143,7 @@ def test_search_by_wrong_author_id():
 @pytest.mark.negative_test
 def test_search_by_wrong_genre_id():
     with allure.step("Поиск по несуществующему разделу {wrong_genre}"):
-        resp = api.search_by_genre(str(wrong_genre))
+        resp = api.search_by_genre(wrong_genre)
         assert resp.status_code == 404
 
 

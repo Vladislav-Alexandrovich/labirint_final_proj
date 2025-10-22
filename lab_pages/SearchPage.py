@@ -18,6 +18,6 @@ class SearchPage:
     def goods_counter(self):
         """ищем кнопки добавления в корзину"""
         put_in_cart_button = self.__driver.find_elements(
-            By.CSS_SELECTOR, '[data-carttext]')
+            By.CSS_SELECTOR, "a._btn.btn-tocart.buy-link")
         number_of_items = len(put_in_cart_button)
         return int(number_of_items)

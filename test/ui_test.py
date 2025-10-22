@@ -147,8 +147,6 @@ def test_search_book(browser):
     with allure.step("Передать драйвер"):
         main_page = MainPage(browser)
         search_page = SearchPage(browser)
-    # with allure.step("Передать куки"):
-    #     main_page.put_cookie()
     with allure.step("Передать значение {item_to_search} для поиска"):
         main_page.search(item_to_search)
     with allure.step("Посчитать количество товаров на странице"):
